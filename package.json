@@ -25,7 +25,7 @@
     "@ionic-native/core": "~4.20.0",
     "@ionic-native/device": "^4.20.0",
     "@ionic-native/facebook": "^4.20.0",
-    "@ionic-native/file": "^4.3.3",
+    "@ionic-native/file": "^5.0.0",
     "@ionic-native/file-transfer": "^4.20.0",
     "@ionic-native/google-plus": "^4.20.0",
     "@ionic-native/in-app-browser": "^4.20.0",
