@@ -134,4 +134,9 @@
         <variable name="MIN_BACKGROUND_DURATION" value="30" />
         <variable name="UPDATE_API" value="https://api.ionicjs.com" />
     </plugin>
+    <plugin name="cordova-plugin-media-capture" source="npm" spec="*">
+  <variable name="CAMERA_USAGE_DESCRIPTION" value="App would like to access the camera." />
+  <variable name="MICROPHONE_USAGE_DESCRIPTION" value="App would like to access the microphone." />
+  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
+</plugin>
 </widget>
