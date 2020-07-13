@@ -139,4 +139,7 @@
   <variable name="MICROPHONE_USAGE_DESCRIPTION" value="App would like to access the microphone." />
   <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
 </plugin>
+<edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+    <string>need to photo library access to get pictures from there</string>
+</edit-config>
 </widget>
