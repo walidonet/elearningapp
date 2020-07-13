@@ -506,7 +506,7 @@ var CourseStatusPage = /** @class */ (function () {
     };
     CourseStatusPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        if (this.course.id != this.coursestatus.course_id) {
+        if (this.course.id != this.coursestatus.course_id) { // New course has been loaded
             console.log('New course to be loaded');
             var progress = parseFloat(this.course.user_progress);
             this.coursestatus = {
@@ -1513,13 +1513,16 @@ var InstructorPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__authentication__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__config__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(11);
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1710,7 +1713,7 @@ var NotesDiscussionService = /** @class */ (function () {
         }
         if (type == 'reply') {
             var new_comment_id_2 = 123456;
-            var comment = __assign({ comment_ID: new_comment_id_2 }, new_comment, { comment_parent: comment_id });
+            var comment = __assign(__assign({ comment_ID: new_comment_id_2 }, new_comment), { comment_parent: comment_id });
             this.parse_index_reply(this.comments, comment_id, comment);
             var opt = this.auth.getUserAuthorizationHeaders();
             this.commentsobservable = this.http.post(this.config.baseUrl + "user/unitcomments/" + new_comment.comment_post_ID + "/reply/" + comment_id, comment, opt)
@@ -3128,7 +3131,7 @@ var UploadAssignmentService = /** @class */ (function () {
             }
         }
         time_labels = count + ' ' + ((count > 1) ? measure.multi : measure.label);
-        if (measure.value > 1) {
+        if (measure.value > 1) { // Ensure we're not on last element
             small_measure = measures[key + 1];
             small_count = Math.floor((time % measure.value) / small_measure.value);
             if (small_count)
@@ -3778,6 +3781,7 @@ var OrderPipe = /** @class */ (function () {
         }
         object[expression[i]] = value;
     };
+    var OrderPipe_1;
     OrderPipe = OrderPipe_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
             name: 'orderBy',
@@ -3785,7 +3789,6 @@ var OrderPipe = /** @class */ (function () {
         })
     ], OrderPipe);
     return OrderPipe;
-    var OrderPipe_1;
 }());
 
 var SafeHtmlPipe = /** @class */ (function () {
@@ -5067,10 +5070,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -5081,8 +5085,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
                 case 4: _.label++; return { value: op[1], done: false };
@@ -5475,7 +5479,7 @@ var UserService = /** @class */ (function () {
         }
         if (flag) {
             var myreviews = this.config.trackComponents('reviews');
-            if (myreviews.indexOf(course_id) > -1) {
+            if (myreviews.indexOf(course_id) > -1) { //if found in storage
                 return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].fromPromise(this.storage.get('review_' + course_id + '_' + this.user.id).then(function (review) {
                     _this.reviews.push({ 'id': course_id, 'review': review });
                     return review;
@@ -5650,7 +5654,7 @@ var UserService = /** @class */ (function () {
         //let chart = {'labels':[],'data':[]};
         var _this = this;
         var charts = this.config.trackComponents('dashboardCharts');
-        if (charts.indexOf('course') > -1) {
+        if (charts.indexOf('course') > -1) { //if found in storage
             return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].fromPromise(this.storage.get('dashboardCharts_Course_' + this.config.user.id).then(function (charts) {
                 return charts;
             }));
@@ -5684,7 +5688,7 @@ var UserService = /** @class */ (function () {
         //let chart = {'labels':[],'data':[]};
         var _this = this;
         var charts = this.config.trackComponents('dashboardCharts');
-        if (charts.indexOf('quiz') > -1) {
+        if (charts.indexOf('quiz') > -1) { //if found in storage
             return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].fromPromise(this.storage.get('dashboardCharts_Quiz_' + this.config.user.id).then(function (charts) {
                 return charts;
             }));
@@ -5734,7 +5738,7 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.checkObjectExists = function (main, value) {
         var exists = false;
-        for (var i = 0; i < main.length; i++) {
+        for (var i = 0; i < main.length; i++) { //iterate through each object in an array
             if (JSON.stringify(main[i]) === JSON.stringify(value)) {
                 exists = true;
                 break;
@@ -7050,8 +7054,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var HomePage = /** @class */ (function () {
     // barcodeScannerOptions: BarcodeScannerOptions;
     function HomePage(navCtrl, courseService, modalCtrl, loadingController, userService, config, wishlistService, walletService, toastCtrl
-        // private admob: AdMob,
-        // public  AdmobService: AdmobService
+    // private admob: AdMob,
+    // public  AdmobService: AdmobService
     ) {
         this.navCtrl = navCtrl;
         this.courseService = courseService;
@@ -7302,6 +7306,7 @@ var LoginPage = /** @class */ (function () {
         });
         alert.present();
     };
+    var LoginPage_1;
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Content */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Content */])
@@ -7328,7 +7333,6 @@ var LoginPage = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]])
     ], LoginPage);
     return LoginPage;
-    var LoginPage_1;
 }());
 
 //# sourceMappingURL=login.js.map
@@ -13128,8 +13132,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyApp = /** @class */ (function () {
     function MyApp(config, platform, menuCtrl, loadingCtrl, app, storage, imgcacheService, 
-        // private admob: AdMob,
-        splashScreen, sidemenu, push_notification) {
+    // private admob: AdMob,
+    splashScreen, sidemenu, push_notification) {
         var _this = this;
         this.config = config;
         this.platform = platform;
@@ -13720,6 +13724,7 @@ var EmailValidatorDirective = /** @class */ (function () {
         }
         return null;
     };
+    var EmailValidatorDirective_1;
     EmailValidatorDirective = EmailValidatorDirective_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
             selector: '[email-validator][formControlName],[email-validator][ngModel]',
@@ -13727,7 +13732,6 @@ var EmailValidatorDirective = /** @class */ (function () {
         })
     ], EmailValidatorDirective);
     return EmailValidatorDirective;
-    var EmailValidatorDirective_1;
 }());
 
 //# sourceMappingURL=FormValidator.js.map
@@ -15220,7 +15224,7 @@ var ChatBlock = /** @class */ (function () {
             }
         }
         time_labels = count + ' ' + ((count > 1) ? measure.multi : measure.label);
-        if (measure.value > 1) {
+        if (measure.value > 1) { // Ensure we're not on last element
             small_measure = measures[key + 1];
             small_count = Math.floor((time % measure.value) / small_measure.value);
             if (small_count)
@@ -15885,7 +15889,7 @@ var MessageBlock = /** @class */ (function () {
             }
         }
         time_labels = count + ' ' + ((count > 1) ? measure.multi : measure.label);
-        if (measure.value > 1) {
+        if (measure.value > 1) { // Ensure we're not on last element
             small_measure = measures[key + 1];
             small_count = Math.floor((time % measure.value) / small_measure.value);
             if (small_count)
@@ -16208,7 +16212,7 @@ var FriendlytimeComponent = /** @class */ (function () {
             }
         }
         time_labels = count + ' ' + ((count > 1) ? measure.multi : measure.label);
-        if (measure.value > 1) {
+        if (measure.value > 1) { // Ensure we're not on last element
             small_measure = measures[key + 1];
             small_count = Math.floor((this.time % measure.value) / small_measure.value);
             if (small_count)
@@ -16292,7 +16296,7 @@ var QuestionComponent = /** @class */ (function () {
     QuestionComponent.prototype.savemultiOptionAnswer = function (marked) {
         if (this.answer) {
             //let ans = this.answer.split(',');
-            if (this.answer.indexOf(marked) > -1) {
+            if (this.answer.indexOf(marked) > -1) { //Remove Makred
                 var index = this.answer.indexOf(marked);
                 this.answer.splice(index, 1);
             }
@@ -18154,6 +18158,7 @@ var ChatService = /** @class */ (function () {
     */
     ChatService.prototype.new_chat = function (args, user, new_user_obj) {
         return new Promise(function (resolve) {
+            var _a;
             __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.database().ref("/chats").push({
                 time: Date.now(),
                 lastUpdate: Date.now(),
@@ -18174,7 +18179,6 @@ var ChatService = /** @class */ (function () {
                     resolve({ 'chat_key': ck.key, 'message_key': mk.key });
                 });
             });
-            var _a;
         });
     };
     /*
@@ -18184,6 +18188,7 @@ var ChatService = /** @class */ (function () {
     ChatService.prototype.start_new_chat = function (user, args) {
         var $this = this;
         return new Promise(function (resolve) {
+            var _a;
             var time = Date.now();
             __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.database().ref("/chats").push({
                 'time': Date.now(),
@@ -18223,12 +18228,12 @@ var ChatService = /** @class */ (function () {
                     resolve(chat_key);
                 });
             });
-            var _a;
         });
     };
     ChatService.prototype.start_new_chat_with_member = function (user, args, member_id) {
         var $this = this;
         return new Promise(function (resolve) {
+            var _a;
             var time = Date.now();
             __WEBPACK_IMPORTED_MODULE_5_firebase___default.a.database().ref("/chats").push({
                 'time': Date.now(),
@@ -18261,7 +18266,6 @@ var ChatService = /** @class */ (function () {
                     });
                 });
             });
-            var _a;
         });
     };
     /*
