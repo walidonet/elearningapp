@@ -1,8 +1,8 @@
 [
   {
     "href": "index.html",
-    "size": 1539,
-    "integrity": "sha256-O/V0prGrwApCyLADmEiJd5xkhFAkHdBpWjKvMnTaylQ= sha384-69ICY49qeuu0uHyp0NRgodpiPYxiyIuPJOmzMZTnbNrNZSoEaaMt3uhM+QcKvHrq sha512-ZKLtDnXxm9mhBM7R8uBxVWYrNr2NXtLzDkgBpRoH6i+MHOZuoUIzoh/yVOXh/r4L1ORgaQR2JayI461iDPaUqQ=="
+    "size": 1545,
+    "integrity": "sha256-laMk/Et9SpvJghfwZggE1xqvKbjGrKk+51nT/EYMKQ8= sha384-Xz3XfpM8/Ar1nr47PamLIj1z3RAAdTSaFjaQHLmcMIdz8HjcYwmW0B8eXSzgL++w sha512-eDgvrlYXTNVGvZcgVtC0ja34g7XqlYC30JIABATb4d3BPpkre5Zg9OIaN6zzJs0Oe9F9rMNMb984Z/cDVyWl9A=="
   },
   {
     "href": "manifest.json",
@@ -36,8 +36,8 @@
   },
   {
     "href": "build\\main.js",
-    "size": 1161818,
-    "integrity": "sha256-vxv+mRazmoHzyRQGrWIZ8sqRKXOe+lx7ha0IyQGfWWM= sha384-LuIh2K9QfpKrWyAaQ/ieW92LR1BhmSP46U2vWox95LJAQgd7rHxQi8pCXXSxD1/O sha512-JKARCdRm7FrmnfcgeSKNVmJfrLH/ZYdinyQvnjcq/d1jSYuB8tkAcZF7xBaKR69X8qvrQMNLkARFvafG6QGLrg=="
+    "size": 1162348,
+    "integrity": "sha256-5koqGvexeXLVcUMPhg+Y5aLkN9Q8qBrBZw5HCe1Ya/I= sha384-0xZIQh4VsSka87w9V1nvpNv+EhiSCySakUfhVVHy2lPcI9NgFcAjqQiK2FvKCgdx sha512-x3nafpOVaScrBVNK0YVR1z4Y/KW4AZjT03pglRXAwqj9ymYBD+aZcyhTJ8NZbshWzdLFLdjME4VZpBRg1G9Vvg=="
   },
   {
     "href": "build\\polyfills.js",
