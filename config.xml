@@ -109,7 +109,7 @@
         </edit-config>
     </platform>
     <plugin name="cordova-plugin-camera" spec="^2.4.1" />
-    <plugin name="cordova-plugin-inappbrowser" spec="~2.1.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~3.2.0" />
     <plugin name="cordova-plugin-compat" spec="~1.2.0" />
     <plugin name="cordova-plugin-device" spec="~1.1.7" />
     <plugin name="cordova-plugin-file" spec="^6.0.0" />
