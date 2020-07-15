@@ -99,14 +99,14 @@
         <splash height="2208" src="resources/ios/splash/Default-736h.png" width="1242" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
-        <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge" overwrite="true">
-          <string>YOUR-PERMISSION-REQUEST</string>
+        <edit-config file="*-Info.plist" mode="merge" overwrite="true" target="NSLocationWhenInUseUsageDescription">
+            <string>YOUR-PERMISSION-REQUEST</string>
         </edit-config>
-        <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge" overwrite="true" >
-          <string>YOUR-PERMISSION-REQUEST</string>
+        <edit-config file="*-Info.plist" mode="merge" overwrite="true" target="NSPhotoLibraryUsageDescription">
+            <string>YOUR-PERMISSION-REQUEST</string>
         </edit-config>
-        <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge" overwrite="true">
-          <string>YOUR-PERMISSION-REQUEST</string>
+        <edit-config file="*-Info.plist" mode="merge" overwrite="true" target="NSCameraUsageDescription">
+            <string>YOUR-PERMISSION-REQUEST</string>
         </edit-config>
     </platform>
     <plugin name="cordova-plugin-camera" spec="^2.4.1" />
@@ -145,8 +145,8 @@
         <variable name="UPDATE_API" value="https://api.ionicjs.com" />
     </plugin>
     <plugin name="cordova-plugin-media-capture" source="npm" spec="*">
-  <variable name="CAMERA_USAGE_DESCRIPTION" value="App would like to access the camera." />
-  <variable name="MICROPHONE_USAGE_DESCRIPTION" value="App would like to access the microphone." />
-  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
-</plugin>
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="App would like to access the camera." />
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value="App would like to access the microphone." />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
+    </plugin>
 </widget>
