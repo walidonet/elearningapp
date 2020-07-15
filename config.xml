@@ -99,7 +99,12 @@
         <splash height="2208" src="resources/ios/splash/Default-736h.png" width="1242" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
-        <preference name = "WKWebViewOnly" value = "true" />
+        <preference name="WKWebViewOnly" value="true" />
+
+        <feature name="CDVWKWebViewEngine">
+          <param name="ios-package" value="CDVWKWebViewEngine" />
+        </feature>
+
         <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge" overwrite="true">
           <string>YOUR-PERMISSION-REQUEST</string>
         </edit-config>
