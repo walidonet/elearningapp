@@ -57,11 +57,9 @@
     </platform>
     <platform name="ios">
         <preference name="WKWebViewOnly" value="true" />
-
         <feature name="CDVWKWebViewEngine">
             <param name="ios-package" value="CDVWKWebViewEngine" />
         </feature>
-
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
@@ -126,4 +124,3 @@
     <plugin name="cordova-plugin-add-swift-support" spec="^2.0.2" />
     <engine name="ios" spec="^4.5.5" />
 </widget>
-
