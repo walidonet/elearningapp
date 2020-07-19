@@ -51,7 +51,6 @@
     "cordova-plugin-inappbrowser": "^3.2.0",
     "cordova-plugin-inapppurchase": "^1.1.0",
     "cordova-plugin-ionic": "^5.4.7",
-    "cordova-plugin-ionic-webview": "^5.0.0",
     "cordova-plugin-media": "^5.0.3",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-statusbar": "^2.4.2",
@@ -131,7 +130,6 @@
         "MICROPHONE_USAGE_DESCRIPTION": "App would like to access the microphone.",
         "PHOTOLIBRARY_USAGE_DESCRIPTION": "App would like to access the library."
       },
-      "cordova-plugin-ionic-webview": {},
       "cordova-plugin-wkwebview-engine": {}
     },
     "platforms": [
