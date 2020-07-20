@@ -109,7 +109,6 @@
     <plugin name="cordova-plugin-ios-non-exempt-encryption" spec="^1.0.0" />
     <allow-navigation href="http://192.168.43.150:8100" />
     <plugin name="cordova-plugin-file" spec="^6.0.0" />
-    <plugin name="cordova-plugin-device" spec="^1.1.7" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-facebook4" spec="4.2.1">
         <variable name="APP_ID" value="491338181212175" />
@@ -121,5 +120,8 @@
     <plugin name="cordova-plugin-inapppurchase" spec="1.2.0" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-add-swift-support" spec="^2.0.2" />
-    <engine name="ios" spec="^4.5.5" />
+    <plugin name="cordova-plugin-device" spec="https://github.com/apache/cordova-plugin-device.git" />
+    <plugin name="cordova-plugin-dialogs" spec="https://github.com/apache/cordova-plugin-dialogs.git" />
+    <plugin name="cordova-plugin-inappbrowser" spec="https://github.com/apache/cordova-plugin-inappbrowser.git" />
+    <engine name="ios" spec="https://github.com/apache/cordova-ios.git" />
 </widget>
