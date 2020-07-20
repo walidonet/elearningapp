@@ -62,7 +62,7 @@
     "cordova-sqlite-storage": "^5.0.0",
     "cordova-support-google-services": "^1.4.1",
     "dragula": "^3.7.2",
-    "firebase": "^6.8.0",
+    "firebase": "^6.2.4",
     "hls.js": "0.12.2",
     "imgcache.js": "^1.1.1",
     "ionic-angular": "3.9.5",
