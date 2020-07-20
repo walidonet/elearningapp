@@ -2,7 +2,7 @@
 <widget id="com.abdelrahmenamro.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>abdelrahman Amr</name>
     <description>To the endlessness we rise together</description>
-    <author email="dev.contact1@abdelrahman-amr.com" href="https://abdelrahman-amr.com/">Abdelrahman Amr</author>
+    <author email="dev.contact@abdelrahman-amr.com" href="https://abdelrahman-amr.com/">Abdelrahman Amr</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
