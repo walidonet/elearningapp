@@ -51,7 +51,6 @@
     "cordova-plugin-googleplus": "^8.5.0",
     "cordova-plugin-inappbrowser": "^4.0.0",
     "cordova-plugin-inapppurchase": "^1.2.0",
-    "cordova-plugin-ionic": "^5.4.7",
     "cordova-plugin-ios-non-exempt-encryption": "^1.0.0",
     "cordova-plugin-media": "^5.0.3",
     "cordova-plugin-splashscreen": "^4.1.0",
@@ -115,14 +114,7 @@
       "cordova-plugin-media": {
         "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO"
       },
-      "cordova-plugin-ionic": {
-        "APP_ID": "a2530949",
-        "CHANNEL_NAME": "Production",
-        "UPDATE_METHOD": "background",
-        "MAX_STORE": "2",
-        "MIN_BACKGROUND_DURATION": "30",
-        "UPDATE_API": "https://api.ionicjs.com"
-      },
+      
       "cordova-plugin-media-capture": {
         "CAMERA_USAGE_DESCRIPTION": "App would like to access the camera.",
         "MICROPHONE_USAGE_DESCRIPTION": "App would like to access the microphone.",
