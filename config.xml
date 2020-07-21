@@ -116,5 +116,6 @@
     <plugin name="cordova-plugin-add-swift-support" spec="^2.0.2" />
     <plugin name="cordova-plugin-device" spec="https://github.com/apache/cordova-plugin-device.git" />
     <plugin name="cordova-plugin-dialogs" spec="https://github.com/apache/cordova-plugin-dialogs.git" />
-    <engine name="ios" spec="^6.0.0" />
+    <plugin name="cordova-plugin-wkwebview-engine" spec="^1.2.1" />
+    <plugin name="cordova-plugin-wkwebviewxhrfix" spec="https://github.com/TheMattRay/cordova-plugin-wkwebviewxhrfix" />
 </widget>
