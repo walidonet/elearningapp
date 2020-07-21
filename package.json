@@ -131,7 +131,7 @@
       "cordova-plugin-dialogs": {},
       "cordova-plugin-ios-non-exempt-encryption": {},
       "cordova-plugin-add-swift-support": {},
-      "cordova-plugin-wkwebview-engine": {},
+      "cordova-plugin-wkwebview-engine": {}
     },
     "platforms": []
   }
