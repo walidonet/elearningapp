@@ -5,6 +5,8 @@
     <author email="dev.contact@abdelrahman-amr.com" href="https://abdelrahman-amr.com/">Abdelrahman Amr</author>
     <content src="index.html" />
     <access origin="*" />
+    <access origin="http://localhost:8080/*" />
+    <allow-navigation href="http://localhost:8080/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
