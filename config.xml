@@ -56,7 +56,7 @@
         <preference name="BackupWebStorage" value="Internal" />
     </platform>
     <platform name="ios">
-        <preference name="WKWebViewOnly" value="true" />
+        <feature name="IonicWebView">
         <feature name="CDVWKWebViewEngine">
             <param name="ios-package" value="CDVWKWebViewEngine" />
         </feature>
