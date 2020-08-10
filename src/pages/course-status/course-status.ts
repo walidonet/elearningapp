@@ -902,7 +902,7 @@ export class CourseStatusPage implements OnInit{
                     toast.present();
                   }, (error) => {
                     let toast = this.toastCtrl.create({
-                      message: error.code ,
+                      message: this.storageDirectory ,
                        duration: 10000,
                       position: 'bottom'
                   });
