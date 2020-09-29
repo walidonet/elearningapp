@@ -83,6 +83,7 @@ export class CourseService implements OnInit{
             if(this.courses.length >= paged*this.config.settings.per_view){            
                 return Observable.of(this.courses);
             }else{
+                
                 this.allcoursesobservable = Observable.fromPromise(this.storage.get('allcourses').then((courses) => {
                     if(courses){
                         this.courses = courses;
@@ -319,6 +320,7 @@ export class CourseService implements OnInit{
                                 this.fullCourses.push(fullCourse);
                                 return fullCourse;
                             }
+                            
                         }
                     }
                     
@@ -422,7 +424,7 @@ export class CourseService implements OnInit{
             this.featuredobservable = this.http.get(`${this.baseUrl}course/featured?per_view=`+this.config.settings.per_view)
             .map(response =>{
                 let body = response.json();
-                console.log('3ibbbb')
+                
                 //let body = response.json();
                 if(body){
                     let courses = [];
@@ -447,6 +449,7 @@ export class CourseService implements OnInit{
         let url = `${this.config.baseUrl}course/filters?filter=`+encodeURI(JSON.stringify(selectFilters)+'&per_view='+this.config.settings.per_view);
         let cacheKey = url;
         console.log(url);
+        
         let items:any[]=[];
 
         

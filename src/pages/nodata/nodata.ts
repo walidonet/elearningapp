@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams ,ToastController} from 'ionic-angular';
 import { Media, MediaObject } from '@ionic-native/media';
 import { File } from '@ionic-native/file';
-import {Platform} from 'ionic-angular';
 
+import { NavController, Platform } from 'ionic-angular';
 /**
  * Generated class for the NodataPage page.
  *
@@ -17,62 +16,64 @@ import {Platform} from 'ionic-angular';
   templateUrl: 'nodata.html',
 })
 export class NodataPage implements OnInit {
-
-  storageDirectory
-  loadFiles=[]
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private media : Media
-    , public platform: Platform,  private file: File,private toastCtrl: ToastController) {
-  }
-  ngOnInit(): void {
-    this.platform.ready().then(() => {
-      if (this.platform.is('ios')) {
-        this.storageDirectory = this.file.dataDirectory;
-      } else if (this.platform.is('android')) {
-        this.storageDirectory = this.file.externalDataDirectory;
-      } else {
-        this.storageDirectory = this.file.cacheDirectory;
+  recording: boolean = false;
+  filePath: string;
+  fileName: string;
+  audio: MediaObject;
+  audioList: any[] = [];
+  constructor(public navCtrl: NavController,
+    private media: Media,
+    private file: File,
+    public platform: Platform) {}
+    getAudioList() {
+      if(localStorage.getItem("audiolist")) {
+        this.audioList = JSON.parse(localStorage.getItem("audiolist"));
+        console.log(this.audioList);
       }
-      this.file.listDir(this.storageDirectory,'').then((listing) => {
-      listing.forEach(element => {
-        if(element.name.substr(element.name.length-3)=='mp3' || element.name.substr(element.name.length-3)=='mp4'){
-          let mediaobject : MediaObject = this.createAudioFile(this.storageDirectory,element.name)
-          this.loadFiles.push(mediaobject)
-        }
-      });
-      let toastt1 = this.toastCtrl.create({
-        message: this.loadFiles[0],
-         duration: 10000,
-        position: 'bottom'
-      });
-      toastt1.present()
-      });
-    });
-  }
-  createAudioFile(pathToDirectory, filename) {
-    if (this.platform.is('ios')) {
-      //ios
-      return this.media.create(
-        pathToDirectory.replace(/^file:\/\//, '') + '/' + filename
-      );
-    } else {
-      // android
-      try {
-        return this.media.create(pathToDirectory + filename);
-      } catch (error) {
-        let toastt1 = this.toastCtrl.create({
-          message: error,
-           duration: 10000,
-          position: 'bottom'
-        });
-        toastt1.present()
-        return error
-      }
-      
     }
+    ionViewWillEnter() {
+      this.getAudioList();
+    }
+    startRecord() {
+      if (this.platform.is('ios')) {
+        this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
+        this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
+        this.audio = this.media.create(this.filePath);
+      } else if (this.platform.is('android')) {
+        this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
+        this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.fileName;
+        this.audio = this.media.create(this.filePath);
+      }
+      this.audio.startRecord();
+      this.recording = true;
+    }
+    stopRecord() {
+      this.audio.stopRecord();
+      let data = { filename: this.fileName };
+      this.audioList.push(data);
+      localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+      this.recording = false;
+      this.getAudioList();
+    }
+    playAudio(file,idx) {
+      if (this.platform.is('ios')) {
+        this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
+        this.audio = this.media.create(this.filePath);
+      } else if (this.platform.is('android')) {
+        this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + file;
+        this.audio = this.media.create(this.filePath);
+      }
+      this.audio.play();
+      this.audio.setVolume(0.8);
+    }
+  ngOnInit(): void {
+    
+    
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NodataPage');
-  }
+
+  
+ 
+  
+
 
 }

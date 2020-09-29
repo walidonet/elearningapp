@@ -137,7 +137,7 @@ export class ConfigService {
 			'chat_number': 10,   // get pagination for chats
 			'message_number': 10,	// get pagination for messages
 			'chat_agents': [1, 2, 3, 10], // user id of agents for non-logged in user chat
-			'welcome_text': 'مرحبًا بك في دردشة تطبيق عبد الرحمان عمر.',
+			'welcome_text': 'مرحبًا بك في دردشة تطبيق عبد الرحمان عمرو.',
 			'nonloggedinForm': 1,
 			'file_size': 5242880,   // in byte for upload file
 			'file_type': [
@@ -424,11 +424,12 @@ export class ConfigService {
 			'home_title'	:	'الصفحة الرئيسية',
 'home_subtitle'	:	'السلع المعروضة',
 'start_course'	:	'بداية',
+'offline_storage'	:	'التخزين دون اتصال',
 'search_title'	:	'يبحث..',
 'continue_course'	:	'استمر',
 'completed_course'	:	'منجز',
 'expired_course'	:	' ',
-'evaluation_course'	:	' ',
+'evaluation_course'	:	'استمر',
 'no_reviews'	:	'لم يتم العثور على مراجعات لهذه الدورة.' ,
 'year'	:	'عام',
 'years'	:	'سنوات',
@@ -880,6 +881,9 @@ export class ConfigService {
 	}
 
 	trackComponents(key: string) {
+		console.log('hala hala ya fawéz')
+		console.log(this.track)
+		console.log('hala hala ya fawéz')
 		return this.track[key];
 	}
 
@@ -1038,6 +1042,7 @@ export class ConfigService {
 		});
 	}
 	getLastCourse() {
+		console.log('lastcoursefrom config')
 		this.storage.get('lastcourse').then((d) => {
 			this.lastCourse = d;
 		});

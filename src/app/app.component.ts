@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { App, Platform, NavController, MenuController, LoadingController } from 'ionic-angular';
 
 //import { StatusBar, Splashscreen } from 'ionic-native';
@@ -23,7 +23,7 @@ import { ImgcacheService } from '../services/imageCache';
 
 // import { OneSignal } from '@ionic-native/onesignal';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
-
+import { File } from '@ionic-native/file';
 
 @Component({
     templateUrl: 'app.html'
@@ -39,8 +39,10 @@ export class MyApp implements OnInit {
 
     @ViewChild('nav') nav: NavController;
 
-    constructor(private config: ConfigService,
+    constructor(
+        private config: ConfigService,
         private platform: Platform,
+        
         private menuCtrl: MenuController,
         private loadingCtrl: LoadingController,
         private app: App,
@@ -52,11 +54,12 @@ export class MyApp implements OnInit {
         public push_notification:PushNotificationService
     ) {
         this.presentLoading();
-
+        
         this.platform.ready().then(() => {
             if (this.config.settings.rtl) {
                 this.platform.setDir('rtl', true);
             }
+            //this.startLocalServe();
             this.push_notification.push_notifcation_firebase();
             /* check here storage:
                if introShown found then RootPage = TabsPage
@@ -144,7 +147,6 @@ export class MyApp implements OnInit {
         });
     }
     
-
     ngOnInit() {
 
     }
@@ -169,4 +171,24 @@ export class MyApp implements OnInit {
         //this.nav.setRoot(page);
         this.menuCtrl.close();
     }
+    file
+    localServeUrl
+   /* startLocalServe(){
+
+        let options: HttpdOptions = {
+          www_root: this.file.dataDirectory.replace('file://',''),
+          port: 9000,
+          localhost_only: true //if you want to create multiple localhost then false  
+        };
+    
+        this.httpd.startServer(options).subscribe(url => {
+          console.log('Server is live',url); //Server is live http://127.0.0.0.1:9000
+          this.ngZone.run(()=>{
+            this.localServeUrl = url;
+          })
+    
+        },error => {
+          console.log('Fail to start Server : ',JSON.stringify(error));
+        });
+    }*/
 }

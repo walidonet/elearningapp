@@ -117,6 +117,19 @@ export class CourseStatusService {
     getCourseStatusItem(status:CourseStatus,index:number){
         
         let statusitems = this.config.trackComponents('statusitems');
+        console.log('statusitems')
+        console.log(statusitems)
+        console.log(index)
+        console.log(status.courseitems[index].id)
+        let t=-1
+        for(let i=0;i<statusitems.length;i++){
+            if(statusitems[i]==status.courseitems[index].id){
+                t=i
+            }
+        }
+        console.log(t)
+        console.log(statusitems.indexOf(status.courseitems[index].id) > -1)
+        console.log('statusitems')
 
         var flag = false;
 

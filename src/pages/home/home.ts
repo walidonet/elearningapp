@@ -24,6 +24,7 @@ import { Course } from '../../models/course';
 import { CourseCategory } from '../../models/course';
 import { FixedScrollHeader } from '../../components/fixed-scroll-header/fixed-scroll-header';
 import { Coursecard } from '../../components/coursecard/coursecard';
+import { File } from '@ionic-native/file';
 // import { AdMob } from "ionic-admob";
 
 // import { AdmobService } from '../../services/admob';
@@ -57,6 +58,7 @@ export class HomePage implements OnInit{
 		private config:ConfigService,
 		private wishlistService:WishlistService,
 		private walletService:WalletService,
+		private file: File,
 		private toastCtrl:ToastController
 
 		// private admob: AdMob,
@@ -70,9 +72,22 @@ export class HomePage implements OnInit{
 	    //   showFlipCameraButton: true
 	    // };
 	}
-
+	
+	 
 	ngOnInit() {
+		this.file.listDir(this.file.dataDirectory,'').then(
+			  (files) => {
+				
+				
+			  }
+			).catch(
+			  (err) => {
+				
+			  }
+			);
+		console.log(this.file.dataDirectory)
 		console.log('waiting to be loaded');
+		
 
 		let loading = this.loadingController.create({
             content: '<img src="assets/images/bubbles.svg">',

@@ -80,7 +80,7 @@ export class CourseStatusPage implements OnInit{
   @ViewChild('CourseStatusItems') courseStatusItems: Slides;
   @ViewChild('QuizQuestions') quizQuestions: Slides;
   @ViewChild(Content) content: Content;
-
+  storageDirectory
     constructor(public navCtrl: NavController, public navParams: NavParams,
         private modalCtrl: ModalController,private alert:AlertController,
         private userService:UserService,
@@ -97,32 +97,40 @@ export class CourseStatusPage implements OnInit{
         private iab: InAppBrowser,
         private transfer: FileTransfer,
         private file: File,
-        public platform: Platform,
-        public fileTransfer: FileTransferObject) {
-
+        public fileTransfer: FileTransferObject,
+        private platform: Platform,) {
+          this.platform.ready().then(() => {
+            if (this.platform.is('ios')) {
+              this.storageDirectory = this.file.dataDirectory;
+            } else if (this.platform.is('android')) {
+              this.storageDirectory = this.file.externalDataDirectory;
+            } else {
+              this.storageDirectory = this.file.cacheDirectory;
+            }
+          });
     }
-    storageDirectory
+    lol
     ngOnInit(){      
-      this.platform.ready().then(() => {
-        if (this.platform.is('ios')) {
-          this.storageDirectory = this.file.dataDirectory;
-        } else if (this.platform.is('android')) {
-          this.storageDirectory = this.file.externalDataDirectory;
-        } else {
-          this.storageDirectory = this.file.cacheDirectory;
-        }
-        
+        this.lol=this.file.dataDirectory + 'Amr-3_mixdown.mp3'
+        let toasttf = this.toastCtrl.create({
+          message: this.lol,
+           duration: 10000,
+          position: 'bottom'
       });
-
+      toasttf.present();
+        console.log('walideanofall')
       
         let data:any;
 
         data  = this.navParams.data;
 
         if(data.hasOwnProperty('course')){
+          console.log("wfn")
             this.storage.set('lastcourse',data);
         }else{
-            data = this.courseService.getLastCourse();
+          console.log("wfi")
+            //data = this.courseService.getLastCourse();
+            data = this.storage.get(data);
         }
         
         this.quizService.getQuizStarted();
@@ -294,7 +302,7 @@ export class CourseStatusPage implements OnInit{
     }
 
     forceReload(){
-      
+      console.log('out mondial')
       let loading = this.loadingCtrl.create({
           content: '<img src="assets/images/bubbles.svg">',//this.config.get_translation('loadingresults'),
           spinner:'hide',
@@ -304,6 +312,7 @@ export class CourseStatusPage implements OnInit{
       loading.present();
 
       let index = this.courseStatusItems.getActiveIndex();
+      console.log(index)
       this.config.removeFromTracker('statusitems',this.coursestatus.courseitems[index].id);
       this.courseStatusService.getCourseStatusItem(this.coursestatus,index).subscribe(res=>{
         this.coursestatus = res;
@@ -874,46 +883,50 @@ export class CourseStatusPage implements OnInit{
               
             });
     }
-    download_video(url){
-      url=url[0]
-      return new Promise((resolve)=>{
+     download_video(url){
+        url=url[0]
+        return new Promise((resolve)=>{
 
-          this.storage.get(url).then(res=>{
-              if(res){
-                resolve(res);
-              }else{
-                 //capture name from URL
-                  let name = url.substring(url.lastIndexOf('/')+1);
-                  let extension  = url.split('.').pop(); 
-                  console.log(name)
-                  console.log(extension)
-                  let toast1 = this.toastCtrl.create({
-                    message: 'بداية التحميل' ,
-                    duration: 5000,
-                    position: 'top'
-                });
-              toast1.present();;
-                  this.fileTransfer.download((url), this.storageDirectory  + name).then((entry) => {
-                    let toast = this.toastCtrl.create({
-                      message: 'إنتهاء التحميل ' ,
-                       duration: 10000,
-                      position: 'bottom'
+            this.storage.get(url).then(res=>{
+                if(res){
+                  resolve(res);
+                }else{
+                   //capture name from URL
+                    let name = url.substring(url.lastIndexOf('/')+1);
+                    let extension  = url.split('.').pop(); 
+                    console.log(name)
+                    console.log(extension)
+                    let toast1 = this.toastCtrl.create({
+                      message: this.file.dataDirectory+name ,
+                      duration: 5000,
+                      position: 'top'
                   });
-                    toast.present();
-                  }, (error) => {
-                    let toast = this.toastCtrl.create({
-                      message: this.storageDirectory ,
-                       duration: 10000,
-                      position: 'bottom'
-                  });
-                    toast.present();
-                  });
+                toast1.present();
+                    console.log(name);
+                    console.log("sweety");
+                    console.log(this.file.dataDirectory);
+                    console.log("sweety");
+                    this.fileTransfer.download((url), this.storageDirectory  + name).then((entry) => {
+                      let toast = this.toastCtrl.create({
+                        message: 'download complete: ' + entry.toURL(),
+                         duration: 10000,
+                        position: 'bottom'
+                    });
+                      toast.present();
+                    }, (error) => {
+                      let toast = this.toastCtrl.create({
+                        message: error.code ,
+                         duration: 10000,
+                        position: 'bottom'
+                    });
+                      toast.present();
+                    });
 
 
-              }
-          });
-      });  
-             }
+                }
+            });
+        });  
+               }
     getLocalAudio(url) {
 
         console.log(url);
@@ -982,5 +995,32 @@ export class CourseStatusPage implements OnInit{
          this.audio.pause();
       }
     }
+    list
+    getAllFavorites() {
+     /* let x=''
+      this.storage.forEach((value, key, index) => {
+        x=x+value.toString();
+        x=x+'/'
+      });*/
+      
+      var promise = new Promise((resolve, reject) => {
+        this.storage.forEach((value, key, index) => {
+          this.list.push(value);
+        }).then((d) => {
+          resolve(this.list);
+        });
+      });
+      console.log(promise);
+      this.storage.forEach((value, key, index) => {
+        this.list.push(value);
+      })
+      let toastst = this.toastCtrl.create({
+        message: this.list.length,
+         duration: 10000,
+        position: 'top'
+    });
+    toastst.present();
+      //return promise;
+  }
 
 }

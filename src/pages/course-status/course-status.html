@@ -155,7 +155,10 @@
                                [src]="video"
                                type="video/mp4">
                         </video>
+                        
                     </vg-player>
+                    <button ion-button icon-only clear (click)="download_video(item.meta.video)">download from here</button>
+
                 </div> 
 
                 <div *ngIf="item.type == 'unit' && item.meta.audio" class="audio-container">
@@ -180,16 +183,48 @@
                             <audio #media [vgMedia]="media" id="myAudio" >
                                 <source [src]="audio" type="audio/mp3">
                             </audio>
+                            
                         </vg-player>
-                        <button ion-button icon-only clear (click)="download_video(item.meta.audio)">تحميل من هنا</button>
+                        <button ion-button icon-only clear (click)="download_video(item.meta.audio)">download from here</button>
                         
-
-                               
+                        
                 </div>   
+                <!--walid local file-->
+                <div >
+                        <vg-player style="height: 50px;" (onPlayerReady)="onPlayerReady($event)"  vg-responsive="true">
+                                <vg-controls [vgAutohide]="false">
+                                    <vg-play-pause></vg-play-pause>
+                                    <vg-playback-button></vg-playback-button>
+    
+                                    <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+    
+                                    <vg-scrub-bar>
+                                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                    </vg-scrub-bar>
+    
+                                    <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+    
+                                    <vg-mute></vg-mute>
+    
+                                </vg-controls>
+                                                                                                                                                                                                                                                
+                                <audio #media [vgMedia]="media" id="myAudio1" >
+                                    <source [src]="'file:///data/user/0/com.abdelrahmanamr.elearningapp/Amr-3_mixdown.mp3'" type="audio/mp3">
+                                </audio>
+                                
+                            </vg-player>
+                            <button ion-button icon-only clear (click)="download_video(item.meta.audio)">download from here</button>
+                            
+                            
+                </div> 
+                  
+                
+                <!--walid local file-->
 
                 
-                </div> 
-
+                </div>
+                <button ion-button icon-only clear (click)="getAllFavorites()">downloads</button>
+                {{list}}
 
                 <div *ngIf="item.type == 'unit' && item.meta.iframes && item.meta.iframes.length">
                     <div class="course_item_iframe" *ngFor="let iframeUrl of item.meta.iframes">
@@ -218,7 +253,7 @@
                               <iframe width="100%" height="100%" [src]="iframeUrl.value | safeUrl" frameborder="0" allowfullscreen></iframe>
 
                                  <button ion-button icon-only clear (click)="download_video(iframeUrl.value)">download from here</button>
-                            
+                            <iframe width="100%" height="100%" src="file:///data/user/0/com.wplms.app/files/file_example_MP4_480_1_5MG_master.m3u8" frameborder="0" allowfullscreen></iframe>
 
                             </div>        
                        
@@ -232,11 +267,8 @@
                 <div id="unit_attachments" *ngIf="item.type == 'unit' && item.meta && item.meta.attachments && item.meta.attachments.length">
                     <h4 [innerHtml]="config.get_translation('unit_attachments')"></h4>
                     <ul>
-                        <!--<li *ngFor="let attachments of item.meta.attachments">
+                        <li *ngFor="let attachments of item.meta.attachments">
                             <a [href]="attachments.link">{{attachments.name}}</a>
-                        </li>-->
-                        <li>
-                            <p> hello</p>
                         </li>
                     </ul> 
                 </div> 

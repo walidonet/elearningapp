@@ -28,7 +28,7 @@ export class SideMenuService {
             { title: this.config.get_translation('directory_menu_title'), component: DirectoryPage, index: 2, hide: false },
             //{ title: this.config.get_translation('instructors_menu_title'), component: InstructorsPage, index: 3, hide: false },
             { title: this.config.get_translation('blog_menu_title'), component: BlogPage, index: 1, hide: false },
-            { title: 'الدورات المخزنة', component: OfflinePage, index: 5, hide: false },
+            { title: this.config.get_translation('offline_storage'), component: OfflinePage, index: 5, hide: false },
             { title: this.config.get_translation('contact_menu_title'), component: ContactPage, index: 4, hide: false }
         ];
 

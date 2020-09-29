@@ -109,7 +109,7 @@ import { AuthenticationService } from '../services/authentication';
 
 import { NotesDiscussionService } from "../services/notes_discussions";
 import { UploadAssignmentService } from "../services/upload_assignment";
-
+import { Media } from '@ionic-native/media';
 
 import { UserService } from '../services/users';
 import { ConfigService } from '../services/config';
@@ -151,10 +151,18 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { PushNotificationService } from '../services/push_notification';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
-import { Media } from '@ionic-native/media';
+import {Network} from '@ionic-native/network/ngx';
 
 import { SideMenuService } from '../services/sidemenu';
 
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { MediaCapture } from '@ionic-native/media-capture/ngx';
+import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
+import { VideoPlayer } from '@ionic-native/video-player/ngx';
+
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 enableProdMode();
 @NgModule({
   declarations: [
@@ -253,9 +261,9 @@ enableProdMode();
     BlogPage,
     PostPage,
     ContactPage,
-    HomePage,
     OfflinePage,
     NodataPage,
+    HomePage,
     TabsPage,
     ProfilePage,
     LoginPage,
@@ -296,8 +304,12 @@ enableProdMode();
     VideoGularBlock
   ],
   providers: [
-  StatusBar,
   Media,
+  NativeAudio,
+  FileOpener,
+  StatusBar,
+  VideoPlayer,
+  Network,
   SplashScreen,
   BarcodeScanner,
   {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -336,6 +348,11 @@ enableProdMode();
   // AdMob,
   // AdmobService,
   FileTransfer,
+  ImagePicker,
+  MediaCapture,
+  StreamingMedia,
+  PhotoViewer,
+  File,
   FileTransferObject
   ]
 })
