@@ -65,7 +65,7 @@
     "cordova-plugin-googleplus": "^8.2.0",
     "cordova-plugin-hkvideoplayer": "^1.0.12",
     "cordova-plugin-httpd": "^0.9.3",
-    "cordova-plugin-inappbrowser": "^1.7.2",
+    "cordova-plugin-inappbrowser": "^3.1.0",
     "cordova-plugin-inapppurchase": "^1.1.0",
     "cordova-plugin-media": "^5.0.3",
     "cordova-plugin-media-capture": "^3.0.3",
