@@ -58,7 +58,7 @@
     "cordova-plugin-whitelist": "^1.3.4",
     "cordova-plugin-wkwebview-engine": "^1.2.1",
     "cordova-sqlite-storage": "^5.0.1",
-    "cordova-support-google-services": "^1.4.1",
+    "cordova-support-google-services": "^1.3.2",
     "dragula": "^3.7.2",
     "firebase": "^6.2.4",
     "hls.js": "0.12.2",
@@ -103,9 +103,14 @@
       "cordova-plugin-whitelist": {},
       "cordova-sqlite-storage": {},
       "ionic-plugin-keyboard": {},
-      "phonegap-plugin-barcodescanner": {},
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
       "cordova-plugin-ionic-keyboard": {},
-      "phonegap-plugin-push": {},
+      "phonegap-plugin-push": {
+        "ANDROID_SUPPORT_V13_VERSION": "27.+",
+        "FCM_VERSION": "17.0.+"
+      },
       "cordova-plugin-googleplus": {
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.t0b9g6ufas6cdntveo8cpfg20q9of4tk-894046507848",
         "PLAY_SERVICES_VERSION": "15.0.1"
@@ -114,7 +119,6 @@
       "cordova-plugin-media": {
         "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO"
       },
-      
       "cordova-plugin-media-capture": {
         "CAMERA_USAGE_DESCRIPTION": "App would like to access the camera.",
         "MICROPHONE_USAGE_DESCRIPTION": "App would like to access the microphone.",
@@ -125,6 +129,8 @@
       "cordova-plugin-add-swift-support": {},
       "cordova-plugin-wkwebview-engine": {}
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   }
 }

@@ -117,5 +117,4 @@
     <plugin name="cordova-plugin-device" spec="https://github.com/apache/cordova-plugin-device.git" />
     <plugin name="cordova-plugin-dialogs" spec="https://github.com/apache/cordova-plugin-dialogs.git" />
     <plugin name="cordova-plugin-wkwebview-engine" spec="^1.2.1" />
-    
 </widget>
