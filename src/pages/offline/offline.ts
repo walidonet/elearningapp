@@ -65,7 +65,7 @@ export class OfflinePage implements OnInit {
     } else {
       // android
       try {
-        return this.media.create(pathToDirectory + filename);
+        return this.media.create(pathToDirectory.replace(/file:\/\//g, '') + filename);
       } catch (error) {
         return error
       }
@@ -85,23 +85,24 @@ export class OfflinePage implements OnInit {
     });
   }
   interval
+  audio
   playRecording(){
-    //let mediaobject :MediaObject = this.createAudioFile(this.storageDirectory,f.name)
-    
+  
     this.is_playing=true
-    this.mediafile.play();
-     this.getMediaDuration(this.mediafile).then(rslt=>this.duration=rslt)
+    /*this.mediafile.play()*/
+     
+  //this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.filename;
+        this.audio = this.media.create(this.filePath);
+      
+      this.audio.play();
+      /*this.getMediaDuration(this.audio).then(rslt=>this.duration=rslt)*/
     this.position=0
    setInterval(function(){
-    //this.duration = this.mediafile.getDuration
     this.position=this.position+1;
-    //this.mediafile.seekTo(this.position*1000)
-  
   }.bind(this), 1000);
     
   }
   changepostion(){
-    //this.mediafile.seekTo(this.position*1000)
     let toast = this.toastCtrl.create({
       message: 'res.message',
       duration: 1000,
@@ -110,26 +111,31 @@ export class OfflinePage implements OnInit {
     toast.present();
   }
   updateSongPosition(event){
-    this.mediafile.seekTo(this.position*1000)
+    this.audio.seekTo(this.position*1000)
   }
   pausePlayRecording() {
     this.is_playing=false
-    //let mediaobject :MediaObject = this.createAudioFile(this.storageDirectory,f.name)
-    this.mediafile.pause();
+    this.audio.pause();
   }
- 
+  filePath
   opendetail(f){
     this.filename=f.name
     this.is_detail=true
-    this.mediafile= this.createAudioFile(this.storageDirectory,f.name)
+    if (this.platform.is('ios')) {
+      
+      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.filename;
+      this.mediafile = this.media.create(this.filePath);
+    } else if (this.platform.is('android')) {
+      
+      this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.filename;
+      this.mediafile = this.media.create(this.filePath);
+    }
+    
     this.duration= this.mediafile.getDuration()*1000
     
-      let toast = this.toastCtrl.create({
-          message: this.duration,
-          duration: 1000,
-          position: 'bottom'
-      });
-      toast.present();
+
+    
+     
   }
   closedetail(f){
     this.filename=''

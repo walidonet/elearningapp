@@ -21,15 +21,15 @@
 <ion-content padding>
   <ion-list *ngIf="!is_detail">
     <ion-item *ngFor="let f of loadFiles">
-      <ion-label  (click)="opendetail(f)">{{f.fullPath}} - <i class="fa fa-play"></i></ion-label>
+      <ion-label  (click)="opendetail(f)">{{f.name}} - <i class="fa fa-play"></i></ion-label>
     </ion-item>
   </ion-list>
   <div *ngIf="is_detail">
-    <ion-item><ion-label *ngIf="!is_playing" (click)="playRecording()"> <i class="fa fa-play"></i> {{filename}}<i class="fa fa-play"></i></ion-label></ion-item>
-    <ion-item><ion-label *ngIf="is_playing" (click)="pausePlayRecording()"> {{filename}}- {{position}} <i class="fa fa-pause"></i></ion-label></ion-item>
+    <ion-item><ion-label *ngIf="!is_playing" (click)="playRecording()"> <ion-icon name="play"></ion-icon> {{filename}}<i class="fa fa-play"></i></ion-label></ion-item>
+    <ion-item><ion-label *ngIf="is_playing" (click)="pausePlayRecording()"> {{filename}}- {{position}} <ion-icon name="pause"></ion-icon></ion-label></ion-item>
     <ion-range  (ionBlur)="updateSongPosition($event)"  min="0" max="duration" [(ngModel)]="position">
     </ion-range>
-    <button (click)="closedetail(f)"><i class="fa fa-stop"></i></button>
+    <button (click)="closedetail(f)"><ion-icon name="hand"></ion-icon></button>
   </div>
   <!--(ionChange)="changepostion()"-->
 </ion-content>
