@@ -19,7 +19,7 @@ import { PushNotificationService } from '../services/push_notification';
 import { SideMenuService } from '../services/sidemenu';
 import { Storage } from '@ionic/storage';
 import { ImgcacheService } from '../services/imageCache';
-// import { AdMob } from "ionic-admob";
+// import { AdMob } from "ionic-admobffff";
 
 // import { OneSignal } from '@ionic-native/onesignal';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
