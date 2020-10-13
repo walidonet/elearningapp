@@ -93,17 +93,9 @@ export class HomePage implements OnInit{
 
 			this.courseService.getFeaturedCourses().subscribe(featured =>{
 				if(featured){
-					console.log("featured")
-					console.log(featured)
-					console.log("featured")
 					this.featured = featured;
 				}
 			});
-			setTimeout(function () {
-				console.log("featured2")
-				console.log(this.featured)
-				console.log("featured2")
-			}, 5000);
 
 			this.courseService.getPopularCourses().subscribe(popular =>{
 				if(popular){
@@ -114,7 +106,6 @@ export class HomePage implements OnInit{
 
 			this.courseService.getAllCourseCategory().subscribe(cats =>{
 				if(cats){
-					console.log(cats)
 					this.categories = cats;
 				}
 			});

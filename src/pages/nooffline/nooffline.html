@@ -11,7 +11,7 @@
               <ion-icon name="md-menu"></ion-icon>
           </button>
       </ion-buttons>
-      <ion-title>الدورات المخزنة</ion-title>
+      <ion-title>walid</ion-title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </ion-navbar>
 </ion-header>
@@ -23,17 +23,8 @@
     </ion-item>
   </ion-list>
   <div *ngIf="is_detail">
-    
-    
-      <p *ngIf="!bo_html5">الرجاء الانتظار قليلا</p>
-    
-      <audio *ngIf="sources != 'init' && ismp3" controls="" [src]="sdkkk"></audio><br>
-      <video width="400" *ngIf="sources != 'init' && !ismp3" controls="" [src]="sdkkk"></video><br>
-      <button (click)="closedetail(f)">العودة للدورات المسجلة</button>
-	
-
-  
-
+    {{source}}
+    <p *ngIf="bo_html5">aaaaa</p>
   </div>
   
 </ion-content>

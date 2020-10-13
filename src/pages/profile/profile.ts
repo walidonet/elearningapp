@@ -32,7 +32,7 @@ import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Chart } from 'chart.js';
 
-import { BarcodeScanner } from "@ionic-native/barcode-scanner";
+//import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 
 @Component({
     selector: 'page-profile',
@@ -113,7 +113,7 @@ export class ProfilePage implements OnInit {
         public groupService: GroupService,
         public forum: ForumService,
         public attendance: AttendanceService,
-        private barcodeScanner: BarcodeScanner,
+        //private barcodeScanner: BarcodeScanner,
     ) {
 
         this.register = false;
@@ -1172,7 +1172,7 @@ export class ProfilePage implements OnInit {
     }
 
 
-    scanbarcode() {
+    /*scanbarcode() {
         let $this = this;
         let options = {
             'prompt': $this.config.get_translation('scanning_barcode') // transalte here
@@ -1205,7 +1205,7 @@ export class ProfilePage implements OnInit {
             .catch(err => {
                 console.log("Error", err);
             });
-    }
+    }*/
 
     on_attendanceTabChanged() {
         let index = this.chatTabs.getActiveIndex();

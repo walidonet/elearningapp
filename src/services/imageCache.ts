@@ -55,9 +55,10 @@ export class ImgcacheService {
               return success ? this.getCachedFileURL(path) : this.cacheFile(path);
             }),
             map((url: string) => {
-              /*if (this.platform.is('ios')) {
-                return this.normalizeURlWKWview(url);
-              }*/
+              if (this.platform.is('ios')) {
+                return src;
+                // return this.normalizeURlWKWview(url);
+              }
               return url;
             })
           )

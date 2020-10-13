@@ -92,8 +92,6 @@ import { MessageBlock } from '../components/messageblock/messageblock';
 import { VideoGularBlock } from '../components/video-gular/video-gular'; 
 
 import { HomePage } from '../pages/home/home';
-import { OfflinePage } from '../pages/offline/offline';
-import { NodataPage } from '../pages/nodata/nodata';
 
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { FriendlytimeComponent } from '../components/friendlytime/friendlytime';
@@ -145,20 +143,23 @@ import { TopicdirectoryPage } from '../pages/topicdirectory/topicdirectory';
 import { ForumBlock } from '../components/forumblock/forumblock'; 
 import { ForumService } from '../services/forum';
 import { AttendanceService } from '../services/attendance';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+//import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 // import { OneSignal } from '@ionic-native/onesignal';
 import { PushNotificationService } from '../services/push_notification';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
-import { Media } from '@ionic-native/media';
 
+import { OfflinePage } from '../pages/offline/offline';
+import { NoofflinePage } from '../pages/nooffline/nooffline';
 import { SideMenuService } from '../services/sidemenu';
 
 enableProdMode();
 @NgModule({
   declarations: [
     MyApp,
+    OfflinePage,
+    NoofflinePage,
     Intro,
     MultiselectorPage,
     AboutPage,
@@ -166,8 +167,6 @@ enableProdMode();
     PostPage,
     ContactPage,
     HomePage,
-    OfflinePage,
-    NodataPage,
     TabsPage,
     ProfilePage,
     LoginPage,
@@ -247,6 +246,8 @@ enableProdMode();
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    OfflinePage,
+    NoofflinePage,
     Intro,
     MultiselectorPage,
     AboutPage,
@@ -254,8 +255,6 @@ enableProdMode();
     PostPage,
     ContactPage,
     HomePage,
-    OfflinePage,
-    NodataPage,
     TabsPage,
     ProfilePage,
     LoginPage,
@@ -297,9 +296,8 @@ enableProdMode();
   ],
   providers: [
   StatusBar,
-  Media,
   SplashScreen,
-  BarcodeScanner,
+  //BarcodeScanner,
   {provide: ErrorHandler, useClass: IonicErrorHandler},
   DragulaService,
   InAppBrowser,

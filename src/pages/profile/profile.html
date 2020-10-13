@@ -523,10 +523,6 @@
 										</ion-item>
 									</ion-list>
 								</div>
-								<button ion-button full icon-left (click)=scanbarcode()
-									*ngIf="config.attendance.enable_mark_attendance">
-									{{this.config.get_translation('mark_today_attendance')}}
-								</button>
 							</div>
 						</div>
 						<div class="message" *ngIf="!config.attendance.enable_attendance">

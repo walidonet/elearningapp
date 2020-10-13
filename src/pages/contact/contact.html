@@ -23,6 +23,29 @@
     <ion-grid>
         <ion-row>
             <ion-col col-12 col-sm-6>
+                <h3 [innerHtml]="config.contactinfo.title" class="heading"></h3>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <div [innerHtml]="config.contactinfo.email"></div>
+                        </ion-col>
+                        <ion-col>
+                            <div [innerHtml]="config.contactinfo.phone"></div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <div [innerHtml]="config.contactinfo.message"></div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <div [innerHtml]="config.contactinfo.address"></div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+            <ion-col col-12 col-sm-6>
 
                 <form [formGroup]="contact" (ngSubmit)="logForm()">
                     <ion-item>
@@ -55,7 +78,14 @@
                     <ion-icon name="logo-instagram" item-left></ion-icon>
                         @{{config.get_translation('config.contactinfo.instagram')}}
                 </ion-item> -->
-               
+                <ion-item>
+                <ion-icon name="logo-facebook" item-left></ion-icon>
+                       @<span [innerHtml]="config.contactinfo.facebook"></span>
+               </ion-item>
+               <ion-item>
+                   <ion-icon name="logo-instagram" item-left></ion-icon>
+                       @<span [innerHtml]="config.contactinfo.instagram"></span>
+               </ion-item>
             </ion-list>
         </ion-col>
     </ion-row>

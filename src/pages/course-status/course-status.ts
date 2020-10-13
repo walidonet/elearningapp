@@ -71,6 +71,7 @@ export class CourseStatusPage implements OnInit{
   proggress_percentage:number;
   timelineactive:number = 1;
   current_time:any;
+  storageDirectory;
 
   iframeUrls: SafeResourceUrl[]=[];
   api:VgAPI;
@@ -97,22 +98,22 @@ export class CourseStatusPage implements OnInit{
         private iab: InAppBrowser,
         private transfer: FileTransfer,
         private file: File,
-        public platform: Platform,
-        public fileTransfer: FileTransferObject) {
+        public fileTransfer: FileTransferObject,
+        private platform: Platform) {
+          this.platform.ready().then(() => {
+            if (this.platform.is('ios')) {
+              this.storageDirectory = this.file.dataDirectory;
+            } else if (this.platform.is('android')) {
+              this.storageDirectory = this.file.externalDataDirectory;
+            } else {
+              this.storageDirectory = this.file.cacheDirectory;
+            }
+          });
 
     }
-    storageDirectory
+
     ngOnInit(){      
-      this.platform.ready().then(() => {
-        if (this.platform.is('ios')) {
-          this.storageDirectory = this.file.dataDirectory;
-        } else if (this.platform.is('android')) {
-          this.storageDirectory = this.file.externalDataDirectory;
-        } else {
-          this.storageDirectory = this.file.cacheDirectory;
-        }
         
-      });
 
       
         let data:any;
@@ -888,14 +889,18 @@ export class CourseStatusPage implements OnInit{
                   console.log(name)
                   console.log(extension)
                   let toast1 = this.toastCtrl.create({
-                    message: 'بداية التحميل' ,
+                    message: this.file.dataDirectory+name ,
                     duration: 5000,
                     position: 'top'
                 });
-              toast1.present();;
+              toast1.present();
+                  console.log(name);
+                  console.log("sweety");
+                  console.log(this.file.dataDirectory);
+                  console.log("sweety");
                   this.fileTransfer.download((url), this.storageDirectory  + name).then((entry) => {
                     let toast = this.toastCtrl.create({
-                      message: 'إنتهاء التحميل ' ,
+                      message: 'download complete: ' + entry.toURL(),
                        duration: 10000,
                       position: 'bottom'
                   });

@@ -45,6 +45,16 @@
             </ion-slide>
         </ion-slides>
         </div>
+
+   <!--  <div>
+        <button *ngIf="this.config.isLoggedIn"  ion-button (click)="AdmobService.showAds(1)">   View ads to get points in wallet
+        </button>
+    </div> -->
+
+
+
+
+
         <div *ngIf="popular.length && config.homePage.popular">
             <h3 class="heading"><a [navPush]="categoryPage" [navParams]="{sortby:'popular'}"> <ion-icon ios="ios-more" md="md-more"></ion-icon></a><span>{{config.get_translation('popular_courses_title_home_page')}}</span><span>{{config.get_translation('popular_courses_subtitle_home_page')}}</span></h3>
             <div id="popular_courses">
@@ -55,6 +65,9 @@
                 </ion-slides>
             </div>
         </div>
+        <div>
+
+         </div>
         <div *ngIf="featured.length && config.homePage.featured">
             <h3 class="heading"><span>{{config.get_translation('featured_courses')}}</span><span>{{config.get_translation('selected_courses')}}</span></h3>
             <div id="popular_courses">

@@ -95,24 +95,9 @@ export class CoursePage implements OnInit{
 
         loading.present();
 
-        /*this.courseService.getFullCourse(course,force).subscribe(res=>{
+        this.courseService.getFullCourse(course,force).subscribe(res=>{
            console.log('inside full course ');
-            //this.fullCourse = res;
-            //this.fullCourse = course;
-            res.course.name = course.name
-            var a =res.description.substring
-              (5,res.description.indexOf('[:en]'))
-              res.description= a
-              res.post_content.rest_content= a
-              this.fullCourse = res;
-              console.log(this.fullCourse)
-              let toast = this.toastCtrl.create({
-                message: this.fullCourse.description,
-                duration: 1000,
-                position: 'bottom'
-              });
-              toast.present();
-            console.log(("walido divanoooo"))
+            this.fullCourse = res;
             
             if(this.fullCourse.course.user_expiry ){
               if(this.fullCourse.course.user_status && this.fullCourse.course.user_expiry > currenttimestamp){
@@ -129,10 +114,8 @@ export class CoursePage implements OnInit{
             }
             
             if(this.config.isLoggedIn){
-              
               this.storage.get('courses_'+this.config.user.id).then(courses=>{
                 console.log(courses);
-                
                 if(courses){
                   if(Array.isArray(courses)){
                     for(let i=0;i<courses.length;i++){
@@ -161,60 +144,7 @@ export class CoursePage implements OnInit{
             for(var k in this.fullCourse){
                 if(k != 'course' && k != 'purchase_link'){this.coursetabs.push(k);}
             }
-            console.log('waliddevlopper')
-            console.log(this.fullCourse)
-            console.log('waliddevlopper')
-        });*/
-        this.courseService.getFullCourse(course,force).subscribe(res=>{
-          console.log('inside full course ');
-           this.fullCourse = res;
-           
-           if(this.fullCourse.course.user_expiry ){
-             if(this.fullCourse.course.user_status && this.fullCourse.course.user_expiry > currenttimestamp){
-               this.myCourse=true;
-               this.myCoursestatus=this.fullCourse.course.user_status;
-             }else{
-               this.expired = true;
-             }
-           }else{
-             if(this.fullCourse.course.user_status){
-               this.myCourse=true;
-               this.myCoursestatus=this.fullCourse.course.user_status;
-             }
-           }
-           
-           if(this.config.isLoggedIn){
-             this.storage.get('courses_'+this.config.user.id).then(courses=>{
-               console.log(courses);
-               if(courses){
-                 if(Array.isArray(courses)){
-                   for(let i=0;i<courses.length;i++){
-                       if(courses[i].id == course.id){
-                           if(this.fullCourse.course.user_expiry){
-                             if(this.fullCourse.course.user_expiry > currenttimestamp){
-                               this.myCourse=true;
-                               this.myCoursestatus=courses[i].user_status;
-                             }else{
-                               this.expired = true;
-                             }
-                           }else{
-                             this.myCourse=true;
-                             this.myCoursestatus=courses[i].user_status;
-                           }
-                           
-                       }
-                   }
-                 }
-               }
-             });
-           }
-
-           
-           loading.dismiss();
-           for(var k in this.fullCourse){
-               if(k != 'course' && k != 'purchase_link'){this.coursetabs.push(k);}
-           }
-       });
+        });
 
         
       }

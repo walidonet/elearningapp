@@ -401,9 +401,6 @@ export class CourseService implements OnInit{
     */
 
     getFeaturedCourses(){
-        console.log('emchi featcher')
-        console.log(this.config.settings.per_view)
-        console.log('emchi featcher')
         console.log('Shall track featured = '+this.config.trackComponents('featured'));
         if(this.config.trackComponents('featured')){
             
@@ -422,8 +419,6 @@ export class CourseService implements OnInit{
             this.featuredobservable = this.http.get(`${this.baseUrl}course/featured?per_view=`+this.config.settings.per_view)
             .map(response =>{
                 let body = response.json();
-                console.log('3ibbbb')
-                //let body = response.json();
                 if(body){
                     let courses = [];
                     for(let i=0;i<body.length;i++){

@@ -242,8 +242,7 @@ export class UserService{
             if(response.status == 400) {
               return "FAILURE";
             } else if(response.status == 200) {
-                let body = JSON.parse(JSON.stringify(response));
-                //let body = response.json();
+                let body = response.json();
                 if(body){ 
                     if(body.length){
                         if(Array.isArray(this.profile.data[key])){
