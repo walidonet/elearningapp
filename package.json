@@ -79,6 +79,7 @@
     "cordova-ios": "^5.1.1",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-wkwebview-engine": "^1.2.1",
+    "cordova-plugin-wkwebviewxhrfix": "git+https://github.com/TheMattRay/cordova-plugin-wkwebviewxhrfix.git",
     "typescript": "~3.2.2"
   },
   "description": "An Ionic project",
@@ -112,7 +113,8 @@
       "cordova-sqlite-storage": {},
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
-      }
+      },
+      "cordova-plugin-wkwebviewxhrfix": {}
     },
     "platforms": [
       "android"
