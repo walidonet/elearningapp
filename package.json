@@ -50,7 +50,6 @@
     "cordova-plugin-ios-non-exempt-encryption": "^1.0.0",
     "cordova-plugin-media": "^5.0.3",
     "cordova-plugin-splashscreen": "^4.1.0",
-    "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.4",
     "cordova-plugin-wkwebview-engine-v2": "^2.2.0",
     "cordova-sqlite-storage": "^5.1.0",
@@ -80,7 +79,8 @@
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-wkwebview-engine": "^1.2.1",
     "cordova-plugin-wkwebviewxhrfix": "git+https://github.com/TheMattRay/cordova-plugin-wkwebviewxhrfix.git",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "cordova-plugin-statusbar": "2.4.2"
   },
   "description": "An Ionic project",
   "cordova": {
@@ -93,7 +93,6 @@
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-inapppurchase": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-statusbar": {},
       "cordova-plugin-whitelist": {},
       "ionic-plugin-keyboard": {},
       "cordova-plugin-wkwebview-engine": {},
@@ -113,7 +112,8 @@
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
       },
-      "cordova-plugin-wkwebviewxhrfix": {}
+      "cordova-plugin-wkwebviewxhrfix": {},
+      "cordova-plugin-statusbar": {}
     },
     "platforms": [
       "android",
