@@ -50,6 +50,9 @@
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationAlwaysUsageDescription">
+            <string>Need location access to find things nearby</string>
+        </edit-config>
         <pods>
             <pod name="Firebase/Analytics" spec="~&gt; 6.17.0" />
             <pod name="Firebase/DynamicLinks" spec="~&gt; 6.17.0" />
