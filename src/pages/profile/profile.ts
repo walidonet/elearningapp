@@ -819,7 +819,7 @@ export class ProfilePage implements OnInit {
    //   // Handle error
    //   alert("error "+JSON.stringify(err))
    //  });
-        let actionSheet = this.action.create({
+        /*let actionSheet = this.action.create({
             title: this.config.get_translation('change_profile_image'),
             buttons: [
                 {
@@ -886,7 +886,7 @@ export class ProfilePage implements OnInit {
             ]
         });
 
-        actionSheet.present();
+        actionSheet.present();*/
 
     }
 
