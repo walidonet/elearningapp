@@ -14,10 +14,7 @@
                     </ion-card-title>
                     <star-rating [rating]="course.average_rating"></star-rating>
                     <span class="course_instructor">{{course.instructor.name}}</span>
-                    <div class="course_price" *ngIf="course.price_html && !config.isString(course.price_html) && course.price_html.length >1">{{config.get_translation('pricing_options')}}</div>
-                    <div class="course_price" *ngIf="course.price_html && !config.isString(course.price_html) && course.price_html.length == 1" [innerHtml]="course.price_html[0].html"></div>
-                    <div class="course_price" *ngIf="course.price_html && config.isString(course.price_html)" [innerHtml]=course.price_html></div>
-                </ion-card-content>
+                     </ion-card-content>
             </ion-col>
         </ion-row>
     </ion-grid>
