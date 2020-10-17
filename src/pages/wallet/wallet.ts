@@ -68,10 +68,10 @@ export class WalletPage implements OnInit{
 	 	}); 
 
    this.products.push({
-      'productId':'sample',
-      'price':'10',
-      'title':'Sample Product',
-      'description':'Sample product',
+      'productId':'com.abdelrahmenamro.app.1523164176',
+      'price':'0',
+      'title':'عبد الرحمان عمرو',
+      'description':'تطبيق تدريب عن بعد',
      });
 
      this.walletService.getWallet(true).subscribe(res=>{

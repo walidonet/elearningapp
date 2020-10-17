@@ -127,8 +127,7 @@ export class ConfigService {
 		/* WALLET RECHARGE : in APP PRODUCT IDS */
 
 		this.wallet = [
-			{ 'product_id': 'wplms_r_50', 'points': 50 },
-			{ 'product_id': 'sample', 'points': 50 },
+			{ 'product_id': 'com.abdelrahmenamro.app.1523164176', 'points': 0 },
 		];
 
 		/* Started chat setting */
