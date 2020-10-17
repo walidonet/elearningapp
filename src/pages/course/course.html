@@ -53,7 +53,63 @@
             </ion-slides>
         </div>
     </div>
-   
+    <button id="course_button" ion-button icon-left *ngIf="myCourse" [innerHtml]="show_course_status()"
+        (click)="goToCourseStatusPage({'course':course,'user':config.user})"></button>
+
+    <button id="course_button" class="single_price" ion-button icon-left
+        *ngIf="!myCourse && fullCourse && !config.isArray(fullCourse.course.price_html)"
+        (click)="buyCourse(fullCourse.course.price_html,fullCourse)"
+        [innerHtml]="fullCourse.course.price_html+(expired?' ('+config.get_translation('expired_course')+')':'')"></button>
+
+    <button id="course_button" class="single_price" ion-button icon-left
+        *ngIf="!myCourse && fullCourse && fullCourse.course.price_html.length == 1 && config.isArray(fullCourse.course.price_html)"
+        (click)="buyCourse(fullCourse.course.price_html[0],fullCourse)"
+        [innerHtml]="fullCourse?.course.price_html[0].html+(expired?' ('+config.get_translation('expired_course')+')':'')"></button>
+
+    <button id="course_button" class="multiple_price" ion-button icon-left
+        *ngIf="!myCourse && fullCourse &&  fullCourse.course.price_html.length > 1 && config.isArray(fullCourse.course.price_html)"
+        (click)="showPricing(fullCourse)"
+        [innerHtml]="config.get_translation('pricing_options')+(expired?' ('+config.get_translation('expired_course')+')':'')"></button>
+
+
+    <div id="buy_popup"
+        *ngIf="fullCourse && fullCourse.course.price_html && !config.isString(fullCourse.course.price_html)"
+        [ngClass]="{'active': activateBuyPopup}">
+
+        <div class="pricing_options">
+            <ion-list class="pricing_option">
+                <ion-item>
+                    <h4>{{config.get_translation('pricing_options_title')}}</h4>
+                    <ion-icon name="close" (click)="closePp()" class="close_pp"></ion-icon>
+                </ion-item>
+                <ion-item *ngFor="let pricing of fullCourse.course.price_html" (swipe)="buyCourse(pricing,fullCourse)"
+                    [ngClass]="{'highlighted': isSwipedPrice(pricing)}">
+                    <div (click)="showExtras(pricing)">
+                        <label [innerHtml]="pricing.html" class="item_html"></label>
+                        <ion-icon class="right updown" *ngIf="pricing.extras && !pricing.extras.open"
+                            name="arrow-dropdown"></ion-icon>
+                        <ion-icon class="right updown" *ngIf="pricing.extras && pricing.extras.open"
+                            name="arrow-dropup"></ion-icon>
+                        <div class="extras" *ngIf="pricing.extras && pricing.extras.open">
+                            <ul class="extras">
+                                <span *ngFor="let extra of pricing.extras">
+                                    <li *ngIf="extra.value && extra.value.length">
+                                        <label>{{extra.label}} : </label>
+                                        <span>
+                                            <ion-icon name="md-close" *ngIf="extra.value == 'H'"></ion-icon>
+                                            <ion-icon name="md-add" *ngIf="extra.value == 'S'"></ion-icon>
+                                        </span>
+                                    </li>
+                                </span>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
 
 
     <div id="coursecontent" padding>

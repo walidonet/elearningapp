@@ -356,12 +356,6 @@ export class CoursePage implements OnInit{
                   }
                 },
                 {
-                  text: this.config.get_translation('buy_from_site'),
-                  handler: () => {
-                    this.buyFromSite(pricing);
-                  }
-                },
-                {
                   text: this.config.get_translation('pay')+' '+pricing.value,
                   handler: () => {
                     this.handleWalletPayment(pricing);
