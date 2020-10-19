@@ -109,7 +109,7 @@ export class WalletService{
         }
         let toast = this.toastCtrl.create({
             message: this.iap
-            .getProducts(walletproducts).toString(),
+            .getProducts(walletproducts)[0],
             duration: 1000,
             position: 'bottom'
         });
