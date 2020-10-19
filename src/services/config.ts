@@ -89,7 +89,7 @@ export class ConfigService {
 			'per_view': 5,
 			'force_mark_all_questions': false,
 			'wallet': true,					// <<----------REQUIRES WPLMS version 3.4
-			'inappbrowser_purchases': true, // <<----------REQUIRES WPLMS version 3.4
+			'inappbrowser_purchases': false, // <<----------REQUIRES WPLMS version 3.4
 			'rtl': true,
 			'units_in_inappbrowser': false,
 			'open_units_in_inappbrowser_auto': true
