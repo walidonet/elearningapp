@@ -34,6 +34,7 @@ export class WalletService{
 
 	constructor(
         private storage: Storage,
+        private toastCtrl:ToastController,
         private config:ConfigService,
         private iap: InAppPurchase,
         private auth:AuthenticationService,
@@ -106,6 +107,13 @@ export class WalletService{
                 walletproducts.push(this.config.wallet[i].product_id);
             }
         }
+        let toast = this.toastCtrl.create({
+            message: this.iap
+            .getProducts(walletproducts).toString(),
+            duration: 1000,
+            position: 'bottom'
+        });
+        toast.present();
         console.log('3asasalsal')
         console.log(this.iap
             .getProducts(walletproducts));
