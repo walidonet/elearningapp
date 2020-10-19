@@ -99,9 +99,6 @@ export class WalletService{
 	//Returns Promise Always use .then and .catch to avoid errors
 	getProducts(){
         let walletproducts:any=[];
-        console.log('3asasalsal')
-        console.log(this.config.wallet.length)
-        console.log('3asasalsal')
         if(this.config.wallet.length){
             for(let i=0;i<this.config.wallet.length;i++){
                 walletproducts.push(this.config.wallet[i].product_id);
@@ -109,8 +106,8 @@ export class WalletService{
         }
         let toast = this.toastCtrl.create({
             message: this.iap
-            .getProducts(walletproducts)[0],
-            duration: 1000,
+            .getProducts(walletproducts)[0].transactionId,
+            duration: 5000,
             position: 'bottom'
         });
         toast.present();
