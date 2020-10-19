@@ -104,17 +104,23 @@ export class WalletService{
                 walletproducts.push(this.config.wallet[i].product_id);
             }
         }
-        let toast = this.toastCtrl.create({
-            message: this.iap
-            .getProducts(walletproducts)[0].transactionId,
-            duration: 5000,
-            position: 'bottom'
-        });
-        toast.present();
-        console.log('3asasalsal')
-        console.log(this.iap
-            .getProducts(walletproducts));
-            console.log('3asasalsal')
+        this.iap.getProducts(walletproducts).then((products) => {
+            if(products.length==0){
+                let toast = this.toastCtrl.create({
+                    message: 'fomma',
+                    duration: 5000,
+                    position: 'top'
+                });
+                toast.present();
+            }else{
+                let toast = this.toastCtrl.create({
+                    message: 'bobfomma',
+                    duration: 5000,
+                    position: 'top'
+                });
+                toast.present();
+            }
+        })
 		return this.iap
 		 .getProducts(walletproducts);
 	}
