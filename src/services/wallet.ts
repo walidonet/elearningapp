@@ -120,6 +120,13 @@ export class WalletService{
                 });
                 toast.present();
             }
+        }).catch((err) => {
+            let toast = this.toastCtrl.create({
+                message: 'errrrrrrrr',
+                duration: 5000,
+                position: 'top'
+            });
+            toast.present();
         })
 		return this.iap
 		 .getProducts(walletproducts);
