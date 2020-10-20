@@ -50,7 +50,7 @@ export class WalletPage implements OnInit{
   	ngOnInit(){
   		
        
-  		this.walletService.getProducts().then((products) => {
+  	/*	this.walletService.getProducts().then((products) => {
 
         console.log('wallet products')
 
@@ -65,7 +65,7 @@ export class WalletPage implements OnInit{
 		 })
 		 .catch((err) => {
 		   console.log(err);
-	 	}); 
+	 	}); */
 
    this.products.push({
       'productId':'com.abdelrahmenamro.app.1523164176',
