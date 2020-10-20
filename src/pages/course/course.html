@@ -53,24 +53,7 @@
             </ion-slides>
         </div>
     </div>
-    <button id="course_button" ion-button icon-left *ngIf="myCourse" [innerHtml]="show_course_status()"
-        (click)="goToCourseStatusPage({'course':course,'user':config.user})"></button>
-
-    <button id="course_button" class="single_price" ion-button icon-left
-        *ngIf="!myCourse && fullCourse && !config.isArray(fullCourse.course.price_html)"
-        (click)="buyCourse(fullCourse.course.price_html,fullCourse)"
-        [innerHtml]="fullCourse.course.price_html+(expired?' ('+config.get_translation('expired_course')+')':'')"></button>
-
-    <button id="course_button" class="single_price" ion-button icon-left
-        *ngIf="!myCourse && fullCourse && fullCourse.course.price_html.length == 1 && config.isArray(fullCourse.course.price_html)"
-        (click)="buyCourse(fullCourse.course.price_html[0],fullCourse)"
-        [innerHtml]="fullCourse?.course.price_html[0].html+(expired?' ('+config.get_translation('expired_course')+')':'')"></button>
-
-    <button id="course_button" class="multiple_price" ion-button icon-left
-        *ngIf="!myCourse && fullCourse &&  fullCourse.course.price_html.length > 1 && config.isArray(fullCourse.course.price_html)"
-        (click)="showPricing(fullCourse)"
-        [innerHtml]="config.get_translation('pricing_options')+(expired?' ('+config.get_translation('expired_course')+')':'')"></button>
-
+    
 
     <div id="buy_popup"
         *ngIf="fullCourse && fullCourse.course.price_html && !config.isString(fullCourse.course.price_html)"
