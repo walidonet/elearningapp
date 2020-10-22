@@ -84,7 +84,7 @@ export class MyApp implements OnInit {
 
 
                 } else {
-                    this.rootPage = Intro;
+                    this.rootPage = TabsPage;
                     let nav = this.app.getRootNav();
                     this.imgcacheService.initImgCache().subscribe(() => {
                         this.initialize().then((res)=>{
