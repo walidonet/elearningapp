@@ -103,7 +103,9 @@
       "cordova-sqlite-storage": {},
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
-      }
+      },
+      "cordova-plugin-ios-non-exempt-encryption": {},
+      "cordova-plugin-add-swift-support": {}
     },
     "platforms": [
       "android",
