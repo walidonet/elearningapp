@@ -94,7 +94,6 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-whitelist": {},
       "ionic-plugin-keyboard": {},
-      "cordova-plugin-wkwebview-engine": {},
       "cordova-plugin-ionic-keyboard": {},
       "phonegap-plugin-push": {},
       "cordova-plugin-googleplus": {
@@ -106,7 +105,8 @@
       "cordova-sqlite-storage": {},
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
-      }
+      },
+      "cordova-plugin-wkwebview-engine": {}
     },
     "platforms": [
       "android",
