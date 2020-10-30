@@ -38,6 +38,8 @@
     "@ngx-translate/http-loader": "^2.0.0",
     "@types/dragula": "^2.1.34",
     "chart.js": "^2.8.0",
+    "cordova-android": "8.1.0",
+    "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-camera": "^2.4.1",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.3",
@@ -50,6 +52,7 @@
     "cordova-plugin-media": "^5.0.3",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-whitelist": "^1.3.4",
+    "cordova-plugin-wkwebview-ionic-xhr": "^2.1.1",
     "cordova-sqlite-storage": "^5.1.0",
     "cordova-support-google-services": "^1.3.2",
     "dragula": "^3.7.2",
@@ -68,9 +71,7 @@
     "rxjs-compat": "^6.0.0",
     "sw-toolbox": "3.6.0",
     "videogular2": "6.1.1",
-    "zone.js": "0.8.29",
-    "cordova-android": "8.1.0",
-    "cordova-plugin-add-swift-support": "^2.0.2"
+    "zone.js": "0.8.29"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.4",
