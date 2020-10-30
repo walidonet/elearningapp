@@ -14,7 +14,7 @@
     <preference name="ScrollEnabled" value="false" />
     <preference name="webviewbounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-minSdkVersion" value="22" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="FadeSplashScreen" value="false" />
@@ -49,7 +49,6 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <preference name="WKWebViewOnly" value="true" />
-        <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
         <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
         <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
