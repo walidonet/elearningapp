@@ -53,7 +53,7 @@
     "cordova-plugin-media": "^5.0.3",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-whitelist": "^1.3.4",
-    "cordova-plugin-wkwebview-ionic-xhr": "^2.1.1",
+    "cordova-plugin-wkwebview-engine-v2": "^2.2.0",
     "cordova-sqlite-storage": "^5.1.0",
     "cordova-support-google-services": "^1.3.2",
     "dragula": "^3.7.2",
@@ -106,8 +106,7 @@
       "cordova-sqlite-storage": {},
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
-      },
-      "cordova-plugin-wkwebview-engine": {}
+      }
     },
     "platforms": [
       "android",

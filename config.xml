@@ -50,6 +50,8 @@
     <platform name="ios">
         <allow-navigation href="*" />
         <allow-intent href="itms:*" />
+        <preference name="AllowBackForwardNavigationGestures" value="true" />
+        <preference name="Allow3DTouchLinkPreview" value="false" />
         <preference name="UseSwiftLanguageVersion" value="5" />
         <allow-intent href="itms-apps:*" />
         <allow-navigation href="*" />
@@ -111,8 +113,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-add-swift-support" spec="^2.0.2" />
-    <plugin name="cordova-plugin-wkwebview-engine" spec="^1.2.1" />
-    <plugin name="cordova-plugin-wkwebview-file-xhr" spec="^2.1.4"  />
     <plugin name="cordova-plugin-inappbrowser" spec="*" />
     <engine name="ios" spec="^6.1.0" />
 </widget>
